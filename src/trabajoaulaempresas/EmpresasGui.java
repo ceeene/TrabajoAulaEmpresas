@@ -1,5 +1,7 @@
 package trabajoaulaempresas;
 
+import clases.Categoria;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,9 +82,10 @@ public class EmpresasGui extends javax.swing.JFrame {
 
         jbMostrar.setText("Mostrar Empleados");
 
-        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new Categoria[] { Categoria.GERENTE, Categoria.JEFE, Categoria.ADMINISTRATIVO }));
+        jcbCategoria.setSelectedIndex(-1);
 
-        jcbEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new EmpresaEnum[] { EmpresaEnum.AIELLO, EmpresaEnum.CARREFOUR,EmpresaEnum.VEA }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,7 +138,7 @@ public class EmpresasGui extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlApellido))
                 .addGap(27, 27, 27)
@@ -316,8 +319,8 @@ public class EmpresasGui extends javax.swing.JFrame {
     private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbMostrar;
-    private javax.swing.JComboBox<String> jcbCategoria;
-    private javax.swing.JComboBox<String> jcbEmpresa;
+    private javax.swing.JComboBox<Categoria> jcbCategoria;
+    private javax.swing.JComboBox<EmpresaEnum> jcbEmpresa;
     private javax.swing.JLabel jlApellido;
     private javax.swing.JLabel jlCategoria;
     private javax.swing.JLabel jlCuit;

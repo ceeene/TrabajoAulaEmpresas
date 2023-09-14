@@ -5,17 +5,52 @@
  */
 package clases;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  *
  * @author Celia
  */
 public class Empresa {
-    String razonSocial;
-    int cuit;
+    private String razonSocial;
+    private int cuit;
+    private ArrayList <Empleado> listaEmpleado;
 
     public Empresa(String razonSocial, int cuit) {
+        
+        
         this.razonSocial = razonSocial;
         this.cuit = cuit;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.razonSocial);
+        hash = 79 * hash + this.cuit;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Empresa other = (Empresa) obj;
+        if (this.cuit != other.cuit) {
+            return false;
+        }
+        if (!Objects.equals(this.razonSocial, other.razonSocial)) {
+            return false;
+        }
+        return true;
     }
 
     public String getRazonSocial() {

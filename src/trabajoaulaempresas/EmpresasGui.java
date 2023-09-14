@@ -1,6 +1,11 @@
 package trabajoaulaempresas;
 
 import clases.Categoria;
+import clases.Empresa;
+import clases.EmpresaEnum;
+import java.util.TreeSet;
+import javax.swing.JOptionPane;
+import static trabajoaulaempresas.EmpresasGui.empresa;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +18,7 @@ import clases.Categoria;
  * @author Celia
  */
 public class EmpresasGui extends javax.swing.JFrame {
-
+public static TreeSet<Empresa> empresa= new TreeSet<>();
     /**
      * Creates new form EmpresasGui
      */
@@ -83,7 +88,6 @@ public class EmpresasGui extends javax.swing.JFrame {
         jbMostrar.setText("Mostrar Empleados");
 
         jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new Categoria[] { Categoria.GERENTE, Categoria.JEFE, Categoria.ADMINISTRATIVO }));
-        jcbCategoria.setSelectedIndex(-1);
 
         jcbEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new EmpresaEnum[] { EmpresaEnum.AIELLO, EmpresaEnum.CARREFOUR,EmpresaEnum.VEA }));
 
@@ -167,6 +171,11 @@ public class EmpresasGui extends javax.swing.JFrame {
         jlRazon.setText("Razon Social");
 
         jbCrear.setText("Crear Empresa");
+        jbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -273,6 +282,30 @@ public class EmpresasGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
+          
+        String razonSocial= jtRazonSocial.getText();
+    EmpresaEnum EmpresaEnum = null;
+      jcbEmpresa.setEditable(true);
+      jcbEmpresa.addItem(EmpresaEnum);
+      /*razonSocial.setText("");*/
+      
+       JOptionPane.showMessageDialog(this, "Empresa agregada con exito");
+        
+       };
+       /* if (razonSocial.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+            return;
+        }
+        
+        if(resu){
+        
+       
+    }//GEN-LAST:event_jbCrearActionPerformed
+        }catch (NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo numeros en CUIT");
+            
+        }
     /**
      * @param args the command line arguments
      */
